@@ -22,7 +22,8 @@ import {
   Mail,
   ExternalLink,
   Activity,
-  CheckCircle2
+  CheckCircle2,
+  TrendingUp
 } from 'lucide-react';
 import { 
   ResponsiveContainer, 
@@ -35,7 +36,8 @@ import {
   XAxis, 
   YAxis, 
   Tooltip,
-  Cell
+  Cell,
+  CartesianGrid
 } from 'recharts';
 
 import { 
@@ -320,16 +322,16 @@ const WhatIsExnus = () => {
           </div>
 
           <div className="relative">
-            <div className="glass rounded-[40px] p-12 aspect-video flex flex-col items-center justify-center gap-8">
+            <div className="glass rounded-[40px] p-6 sm:p-12 aspect-square sm:aspect-video flex flex-col items-center justify-center gap-8">
               <div className="flex items-center justify-between w-full max-w-md relative">
                 {/* Connection lines */}
                 <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-y-1/2 z-0" />
                 
-                <div className="flex flex-col items-center gap-3 relative z-10">
-                  <div className="w-16 h-16 glass rounded-2xl flex items-center justify-center">
-                    <Wallet size={24} />
+                <div className="flex flex-col items-center gap-2 sm:gap-3 relative z-10">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 glass rounded-2xl flex items-center justify-center">
+                    <Wallet size={20} className="sm:w-6 sm:h-6" />
                   </div>
-                  <span className="text-xs font-medium text-white/50">User</span>
+                  <span className="text-[10px] sm:text-xs font-medium text-white/50">User</span>
                 </div>
 
                 <motion.div 
@@ -338,8 +340,8 @@ const WhatIsExnus = () => {
                   className="absolute top-1/2 left-1/4 w-2 h-2 bg-brand-primary rounded-full blur-[2px] z-20" 
                 />
 
-                <div className="flex flex-col items-center gap-3 relative z-10">
-                  <div className="w-20 h-20 glass rounded-2xl flex items-center justify-center border-brand-primary/50 glow-primary bg-brand-primary/5 overflow-hidden">
+                <div className="flex flex-col items-center gap-2 sm:gap-3 relative z-10">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 glass rounded-2xl flex items-center justify-center border-brand-primary/50 glow-primary bg-brand-primary/5 overflow-hidden">
                     <img 
                       src="https://azure-big-booby-964.mypinata.cloud/ipfs/bafybeid2os6ocficy2ijgrhbxv4triyfnmrls36grwp6sznsf2r7u7e2km" 
                       alt="Exnus XNode" 
@@ -347,19 +349,19 @@ const WhatIsExnus = () => {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <span className="text-xs font-medium text-white/50">XNode</span>
+                  <span className="text-[10px] sm:text-xs font-medium text-white/50">XNode</span>
                 </div>
 
-                <div className="flex flex-col items-center gap-3 relative z-10">
-                  <div className="w-16 h-16 glass rounded-2xl flex items-center justify-center">
-                    <Layers size={24} />
+                <div className="flex flex-col items-center gap-2 sm:gap-3 relative z-10">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 glass rounded-2xl flex items-center justify-center">
+                    <Layers size={20} className="sm:w-6 sm:h-6" />
                   </div>
-                  <span className="text-xs font-medium text-white/50">On-Chain</span>
+                  <span className="text-[10px] sm:text-xs font-medium text-white/50">On-Chain</span>
                 </div>
               </div>
               
               <div className="text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-sm font-medium text-green-400 border-green-400/20">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-xs sm:text-sm font-medium text-green-400 border-green-400/20">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   Verified Proof Generated
                 </div>
@@ -483,7 +485,7 @@ const XNodesSection = () => {
               </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-4">
                 {/* Uptime Chart */}
                 <div className="glass p-6 rounded-3xl group cursor-crosshair">
@@ -585,78 +587,6 @@ const XNodesSection = () => {
   );
 };
 
-const IncentiveModel = () => {
-  return (
-    <section id="incentives" className="py-20 lg:py-32 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Incentive Model</h2>
-          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">A sustainable economic framework designed to incentivize high-performance hardware contributions and long-term network stability.</p>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 glass rounded-[40px] p-8 md:p-12 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 px-6 py-2 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-bl-2xl shadow-[0_0_20px_rgba(244,63,94,0.3)] z-20">
-              Coming Soon
-            </div>
-            
-            <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-2">Planned Distribution</h3>
-              <p className="text-sm text-white/40 mb-12">The economic framework is currently undergoing final stress-testing and auditing.</p>
-              
-              <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10">
-                {[
-                  { label: "Node Operators", desc: "Hardware maintenance rewards" },
-                  { label: "Stakers & Delegators", desc: "Network security yield" },
-                  { label: "Ecosystem Fund", desc: "Development & grants" },
-                  { label: "Liquidity Provision", desc: "Market depth incentives" }
-                ].map((item, i) => (
-                  <div key={i} className="relative">
-                    <div className="flex justify-between items-end mb-3">
-                      <span className="font-bold text-lg">{item.label}</span>
-                      <div className="h-6 w-16 bg-white/5 rounded-lg animate-pulse overflow-hidden relative">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
-                      </div>
-                    </div>
-                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "100%" }}
-                        transition={{ duration: 1.5, delay: i * 0.1 }}
-                        className="h-full bg-white/10"
-                      />
-                    </div>
-                    <p className="text-[10px] text-white/30 uppercase tracking-widest mt-2">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-
-            </div>
-
-            {/* Background Decorative Element */}
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-brand-primary/10 rounded-full blur-[80px] group-hover:bg-brand-primary/20 transition-colors duration-700" />
-          </div>
-
-          <div className="glass rounded-[40px] p-8 flex flex-col justify-center text-center relative overflow-hidden group">
-            <div className="absolute top-0 right-0 px-4 py-1 bg-white/5 text-white/30 text-[8px] font-bold uppercase tracking-widest rounded-bl-xl border-l border-b border-white/10">
-              In Review
-            </div>
-            <h3 className="text-2xl font-bold mb-4">Deflationary Logic</h3>
-            <p className="text-white/50 mb-8 text-sm leading-relaxed">
-              Exnus incorporates a burn mechanism where a percentage of protocol fees are permanently removed from circulation, balancing the incentive supply and ensuring long-term value.
-            </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-xs font-medium text-white/50 mx-auto">
-              Full details in Whitepaper
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const WhyExnus = () => {
   return (
     <section className="py-20 lg:py-32">
@@ -683,6 +613,75 @@ const WhyExnus = () => {
               <p className="text-white/50 leading-relaxed text-sm">{item.desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const halvingData = [
+  { epoch: '1-65', rewards: 100 },
+  { epoch: '66-130', rewards: 50 },
+  { epoch: '131-195', rewards: 25 },
+  { epoch: '196-260', rewards: 12.5 },
+  { epoch: '261-325', rewards: 6.25 },
+  { epoch: '326-390', rewards: 3.125 },
+];
+
+const HalvingSchedule = () => {
+  return (
+    <section className="py-24 sm:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-black/5" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-brand-primary/20 text-brand-primary text-sm font-medium mb-6">
+            <TrendingUp size={16} />
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
+            Epoch Reward <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Halving</span>
+          </h2>
+          <p className="text-lg text-white/60">
+            A predictable, deflationary emission schedule. After each 65-epoch cycle, the reward pool is halved to manage inflation over a 15-year period. Each epoch lasts exactly 14 days.
+          </p>
+        </div>
+
+        <div className="glass rounded-3xl p-6 sm:p-12 border-white/5">
+          <div className="h-[300px] sm:h-[400px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={halvingData} margin={{ top: 20, right: 20, left: -20, bottom: 40 }}>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
+                <XAxis 
+                  dataKey="epoch" 
+                  stroke="rgba(255,255,255,0.5)" 
+                  fontSize={12} 
+                  tickLine={false} 
+                  axisLine={false} 
+                  interval={0}
+                  angle={-45}
+                  textAnchor="end"
+                  dy={10}
+                />
+                <YAxis 
+                  stroke="rgba(255,255,255,0.5)" 
+                  fontSize={12} 
+                  tickLine={false} 
+                  axisLine={false} 
+                  tickFormatter={(value) => `${value}%`}
+                />
+                <Tooltip 
+                  cursor={{ fill: 'rgba(255,255,255,0.05)' }} 
+                  contentStyle={{ backgroundColor: '#111', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}
+                  formatter={(value) => [`${value}%`, 'Reward Pool']}
+                  labelStyle={{ color: 'rgba(255,255,255,0.5)', marginBottom: '4px' }}
+                />
+                <Bar dataKey="rewards" fill="#F27D26" radius={[6, 6, 0, 0]}>
+                  {halvingData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={index === 0 ? '#F27D26' : `rgba(242, 125, 38, ${1 - index * 0.15})`} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </section>
@@ -746,32 +745,32 @@ const DashboardPreview = () => {
                 </div>
 
                 {/* Mock App Content */}
-                <div className="p-6">
-                  <div className="flex gap-6 mb-8">
-                    <div className="w-1/4 space-y-3">
-                      <div className="h-8 glass rounded-lg" />
-                      <div className="h-8 glass rounded-lg bg-brand-primary/10" />
-                      <div className="h-8 glass rounded-lg" />
-                      <div className="h-8 glass rounded-lg" />
+                <div className="p-4 sm:p-6">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-6 sm:mb-8">
+                    <div className="flex sm:flex-col gap-2 sm:gap-3 overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
+                      <div className="h-8 w-20 sm:w-full shrink-0 glass rounded-lg" />
+                      <div className="h-8 w-20 sm:w-full shrink-0 glass rounded-lg bg-brand-primary/10" />
+                      <div className="h-8 w-20 sm:w-full shrink-0 glass rounded-lg" />
+                      <div className="h-8 w-20 sm:w-full shrink-0 glass rounded-lg" />
                     </div>
                     <div className="flex-1">
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="glass p-4 rounded-2xl border-brand-primary/20">
+                      <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div className="glass p-3 sm:p-4 rounded-2xl border-brand-primary/20">
                           <div className="text-[10px] text-white/30 uppercase mb-1">Total Staked</div>
-                          <div className="text-2xl font-bold text-brand-primary">42,850 EXN</div>
+                          <div className="text-lg sm:text-2xl font-bold text-brand-primary">42,850 EXN</div>
                         </div>
-                        <div className="glass p-4 rounded-2xl">
+                        <div className="glass p-3 sm:p-4 rounded-2xl">
                           <div className="text-[10px] text-white/30 uppercase mb-1">Active Nodes</div>
-                          <div className="text-2xl font-bold">03</div>
+                          <div className="text-lg sm:text-2xl font-bold">03</div>
                         </div>
                       </div>
                       
-                      <div className="glass p-5 rounded-2xl">
+                      <div className="glass p-4 sm:p-5 rounded-2xl">
                         <div className="flex justify-between items-center mb-4">
                           <div className="text-[10px] text-white/30 uppercase">Performance History</div>
                           <div className="text-[10px] text-green-400">+12.4%</div>
                         </div>
-                        <div className="flex items-end gap-1 h-24">
+                        <div className="flex items-end gap-1 h-16 sm:h-24">
                           {[30, 45, 35, 60, 55, 80, 75, 90, 85, 100].map((h, i) => (
                             <div key={i} className="flex-1 bg-brand-primary/20 rounded-t-sm" style={{ height: `${h}%` }} />
                           ))}
@@ -780,17 +779,17 @@ const DashboardPreview = () => {
                     </div>
                   </div>
                   
-                  <div className="glass p-4 rounded-2xl flex items-center justify-between">
+                  <div className="glass p-3 sm:p-4 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-green-400/10 flex items-center justify-center">
-                        <Activity size={18} className="text-green-400" />
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-green-400/10 flex items-center justify-center shrink-0">
+                        <Activity size={16} className="text-green-400" />
                       </div>
                       <div>
                         <div className="text-xs font-bold">XNode #1420</div>
                         <div className="text-[10px] text-white/30">Status: Optimal</div>
                       </div>
                     </div>
-                    <div className="text-right">
+                    <div className="text-left sm:text-right">
                       <div className="text-xs font-bold">14.2% APY</div>
                       <div className="text-[10px] text-white/30">Uptime: 99.9%</div>
                     </div>
@@ -824,7 +823,7 @@ const Ecosystem = () => {
           </div>
           <div className="inline-flex items-center gap-3 px-6 py-3 glass rounded-2xl border-brand-primary/20 animate-pulse">
             <div className="w-2 h-2 rounded-full bg-brand-primary" />
-            <span className="text-sm font-bold text-brand-primary uppercase tracking-widest">Announcements Approaching</span>
+            <span className="text-sm font-bold text-brand-primary uppercase tracking-widest">Coming Soon</span>
           </div>
         </div>
       </div>
@@ -875,7 +874,6 @@ const Footer = () => {
             <h5 className="font-bold mb-6">Resources</h5>
             <ul className="space-y-4 text-white/50 text-sm">
               <li className="flex items-center gap-2">GitHub <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white/40">Coming Soon</span></li>
-              <li className="flex items-center gap-2">Team <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white/40">Coming Soon</span></li>
               <li><Link to="/whitepaper" className="hover:text-brand-primary transition-colors">Whitepaper</Link></li>
               <li className="flex items-center gap-2">Audit Reports <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white/40">Coming Soon</span></li>
             </ul>
@@ -906,19 +904,19 @@ const Footer = () => {
   );
 };
 
-const Founders = () => {
+const Team = () => {
   return (
-    <section id="founders" className="py-20 lg:py-32">
+    <section id="team" className="py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-bold text-brand-primary mb-6 border-brand-primary/20 uppercase tracking-widest">
             The Visionaries
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Founders</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Team</h2>
           <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">The team behind Exnus Protocol, dedicated to building the future of hardware-powered decentralized infrastructure.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* James */}
           <div className="glass p-8 rounded-3xl border border-white/10 w-full text-center group">
             <div className="relative mb-8 mx-auto w-48 h-48 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
@@ -950,6 +948,23 @@ const Founders = () => {
             <p className="text-brand-primary font-mono text-sm uppercase tracking-widest mb-4">Co-Founder</p>
             <p className="text-white/60 text-sm leading-relaxed">
               Solana-focused technical contributor with experience at Xandeum Network, working across community operations and technical support.
+            </p>
+          </div>
+
+          {/* Ismaila mufutau */}
+          <div className="glass p-8 rounded-3xl border border-white/10 w-full text-center group">
+            <div className="relative mb-8 mx-auto w-48 h-48 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
+              <img 
+                src="https://azure-big-booby-964.mypinata.cloud/ipfs/bafybeiez4solbpd2orsrvtrgymftbct5rkhhkh7cdnimjd43kgr37qis4a" 
+                alt="Ismaila mufutau" 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <h3 className="text-2xl font-bold mb-2">Ismaila mufutau</h3>
+            <p className="text-brand-primary font-mono text-sm uppercase tracking-widest mb-4">Exnus Protocol Social Media Manager</p>
+            <p className="text-white/60 text-sm leading-relaxed">
+              Driving community engagement and social presence for the Exnus ecosystem.
             </p>
           </div>
         </div>
@@ -1034,11 +1049,11 @@ export default function App() {
             <WhatIsExnus />
             <HowItWorks />
             <XNodesSection />
-            <IncentiveModel />
             <WhyExnus />
+            <HalvingSchedule />
             <DashboardPreview />
             <Roadmap />
-            <Founders />
+            <Team />
             <Ecosystem />
             <FinalCTA />
             <Footer />
