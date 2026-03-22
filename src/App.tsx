@@ -224,7 +224,7 @@ const PerformanceShowcase = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center py-20 overflow-x-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-primary/20 rounded-full blur-[120px] animate-pulse" />
@@ -237,25 +237,26 @@ const Hero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-center lg:text-left"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium text-brand-primary mb-6 border-brand-primary/20">
             <span>Project in Development • Coming Soon</span>
           </div>
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight leading-[0.9] mb-8">
-            Hardware-powered <br />
-            <span className="text-brand-primary">staking.</span> <br />
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-tight md:leading-[0.9] mb-8">
+            Hardware-powered <br className="hidden sm:block" />
+            <span className="text-brand-primary">staking.</span> <br className="hidden sm:block" />
             Verified on-chain.
           </h1>
-          <p className="text-xl text-white/60 max-w-lg mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/60 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed">
             Exnus leverages high-performance XNodes to execute complex off-chain computations with transparent, cryptographic on-chain verification.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-4 bg-white text-black rounded-2xl font-bold text-lg hover:scale-105 transition-transform flex items-center gap-2 group">
-              Start Staking <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            <button className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-black rounded-2xl font-bold text-base sm:text-lg hover:scale-105 transition-transform flex items-center gap-2 group shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+              Waitlist Coming Soon <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </button>
             <Link 
               to="/whitepaper" 
-              className="px-8 py-4 glass rounded-2xl font-bold text-lg hover:bg-white/10 transition-all flex items-center gap-2"
+              className="px-6 py-3 sm:px-8 sm:py-4 glass rounded-2xl font-bold text-base sm:text-lg hover:bg-white/10 transition-all flex items-center gap-2"
             >
               Read Whitepaper <ExternalLink size={20} />
             </Link>
@@ -266,18 +267,18 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative hidden lg:block"
+          className="relative mt-20 lg:mt-0 px-4 lg:px-0"
         >
           <XNodeVisual />
           
           {/* Floating stats */}
-          <div className="absolute -top-6 -right-6 glass p-4 rounded-2xl animate-bounce">
-            <div className="text-xs text-white/50 uppercase tracking-widest mb-1">Network APY</div>
-            <div className="text-2xl font-bold text-brand-primary">14.2%</div>
+          <div className="absolute -top-10 -right-2 sm:-top-6 sm:-right-6 glass p-3 sm:p-4 rounded-2xl animate-bounce">
+            <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mb-1">Network APY</div>
+            <div className="text-lg sm:text-2xl font-bold text-brand-primary">14.2%</div>
           </div>
-          <div className="absolute -bottom-6 -left-6 glass p-4 rounded-2xl animate-bounce delay-700">
-            <div className="text-xs text-white/50 uppercase tracking-widest mb-1">Active XNodes</div>
-            <div className="text-2xl font-bold">1,248</div>
+          <div className="absolute -bottom-10 -left-2 sm:-bottom-6 sm:-left-6 glass p-3 sm:p-4 rounded-2xl animate-bounce delay-700">
+            <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mb-1">Active XNodes</div>
+            <div className="text-lg sm:text-2xl font-bold">1,248</div>
           </div>
         </motion.div>
       </div>
@@ -287,13 +288,16 @@ const Hero = () => {
 
 const WhatIsExnus = () => {
   return (
-    <section id="what" className="py-32 relative">
+    <section id="what" className="py-20 lg:py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-bold text-brand-primary mb-6 border-brand-primary/20 uppercase tracking-widest">
+              Core Infrastructure
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8">What is Exnus?</h2>
             <p className="text-xl text-white/60 leading-relaxed mb-12">
-              Exnus is a decentralized infrastructure layer that bridges the gap between high-performance hardware and on-chain security. We enable complex computations to happen off-chain while maintaining absolute cryptographic proof on the blockchain.
+              Exnus is a decentralized infrastructure layer bridging the gap between high-performance hardware and on-chain security. We enable complex computations to happen off-chain while maintaining absolute cryptographic proof on the blockchain.
             </p>
             
             <div className="space-y-6">
@@ -370,11 +374,14 @@ const WhatIsExnus = () => {
 
 const HowItWorks = () => {
   return (
-    <section id="how" className="py-32 bg-white/[0.02]">
+    <section id="how" className="py-20 lg:py-32 bg-white/[0.02]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-bold text-brand-primary mb-6 border-brand-primary/20 uppercase tracking-widest">
+            Operational Pipeline
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">How It Operates</h2>
-          <p className="text-white/50 max-w-2xl mx-auto">Exnus bridges the gap between off-chain performance and on-chain security through a seamless, automated pipeline.</p>
+          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">Exnus bridges the gap between off-chain performance and on-chain security through a seamless, automated verification pipeline.</p>
         </div>
 
         <PerformanceShowcase />
@@ -440,16 +447,19 @@ const XNodesSection = () => {
   }, []);
 
   return (
-    <section id="xnodes" className="py-32">
+    <section id="xnodes" className="py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="glass rounded-[48px] p-8 md:p-16 overflow-hidden relative">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-primary/10 to-transparent pointer-events-none" />
           
           <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
             <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-bold text-brand-primary mb-6 border-brand-primary/20 uppercase tracking-widest">
+                Hardware Layer
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">What are XNodes?</h2>
               <p className="text-xl text-white/60 mb-12 leading-relaxed">
-                XNodes are the backbone of the Exnus network. These are dedicated hardware units optimized for high-throughput computation and cryptographic verification.
+                XNodes are the backbone of the Exnus network—dedicated hardware units optimized for high-throughput computation and cryptographic verification.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6 mb-12">
@@ -468,8 +478,8 @@ const XNodesSection = () => {
                 ))}
               </div>
 
-              <button className="px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold text-lg hover:glow-primary transition-all">
-                Become an Operator
+              <button className="px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold text-lg hover:glow-primary transition-all shadow-[0_0_40px_rgba(244,63,94,0.2)]">
+                Waitlist Coming Soon
               </button>
             </div>
 
@@ -577,37 +587,62 @@ const XNodesSection = () => {
 
 const IncentiveModel = () => {
   return (
-    <section id="incentives" className="py-32 relative overflow-hidden">
+    <section id="incentives" className="py-20 lg:py-32 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Incentive Model</h2>
-          <p className="text-white/50 max-w-2xl mx-auto">Designed to reward long-term stability and high-performance hardware contribution.</p>
+          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">A sustainable economic framework designed to incentivize high-performance hardware contributions and long-term network stability.</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 glass rounded-[40px] p-8 md:p-12">
-            <h3 className="text-2xl font-bold mb-8">Planned Distribution</h3>
-            <div className="space-y-8">
-              {[
-                { label: "Node Operators", value: "45%", desc: "Direct rewards for maintaining high-performance hardware." },
-                { label: "Stakers & Delegators", value: "35%", desc: "Yield for securing the network through delegation." },
-                { label: "Ecosystem Fund", value: "15%", desc: "Reserved for future development and community grants." },
-                { label: "Liquidity Provision", value: "5%", desc: "Incentives for maintaining healthy market depth." }
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-6">
-                  <div className="w-16 text-2xl font-bold text-brand-primary shrink-0">{item.value}</div>
-                  <div className="flex-1">
-                    <div className="font-bold mb-1">{item.label}</div>
-                    <div className="text-sm text-white/40 leading-relaxed">{item.desc}</div>
-                  </div>
-                </div>
-              ))}
+          <div className="lg:col-span-2 glass rounded-[40px] p-8 md:p-12 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 px-6 py-2 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-bl-2xl shadow-[0_0_20px_rgba(244,63,94,0.3)] z-20">
+              Coming Soon
             </div>
+            
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-2">Planned Distribution</h3>
+              <p className="text-sm text-white/40 mb-12">The economic framework is currently undergoing final stress-testing and auditing.</p>
+              
+              <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10">
+                {[
+                  { label: "Node Operators", desc: "Hardware maintenance rewards" },
+                  { label: "Stakers & Delegators", desc: "Network security yield" },
+                  { label: "Ecosystem Fund", desc: "Development & grants" },
+                  { label: "Liquidity Provision", desc: "Market depth incentives" }
+                ].map((item, i) => (
+                  <div key={i} className="relative">
+                    <div className="flex justify-between items-end mb-3">
+                      <span className="font-bold text-lg">{item.label}</span>
+                      <div className="h-6 w-16 bg-white/5 rounded-lg animate-pulse overflow-hidden relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
+                      </div>
+                    </div>
+                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "100%" }}
+                        transition={{ duration: 1.5, delay: i * 0.1 }}
+                        className="h-full bg-white/10"
+                      />
+                    </div>
+                    <p className="text-[10px] text-white/30 uppercase tracking-widest mt-2">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* Background Decorative Element */}
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-brand-primary/10 rounded-full blur-[80px] group-hover:bg-brand-primary/20 transition-colors duration-700" />
           </div>
 
-          <div className="glass rounded-[40px] p-8 flex flex-col justify-center text-center">
+          <div className="glass rounded-[40px] p-8 flex flex-col justify-center text-center relative overflow-hidden group">
+            <div className="absolute top-0 right-0 px-4 py-1 bg-white/5 text-white/30 text-[8px] font-bold uppercase tracking-widest rounded-bl-xl border-l border-b border-white/10">
+              In Review
+            </div>
             <h3 className="text-2xl font-bold mb-4">Deflationary Logic</h3>
             <p className="text-white/50 mb-8 text-sm leading-relaxed">
               Exnus incorporates a burn mechanism where a percentage of protocol fees are permanently removed from circulation, balancing the incentive supply and ensuring long-term value.
@@ -624,11 +659,14 @@ const IncentiveModel = () => {
 
 const WhyExnus = () => {
   return (
-    <section className="py-32">
+    <section className="py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-bold text-brand-primary mb-6 border-brand-primary/20 uppercase tracking-widest">
+            Protocol Advantages
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Why Exnus?</h2>
-          <p className="text-white/50 max-w-2xl mx-auto">The infrastructure layer designed for the next generation of decentralized applications.</p>
+          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">The infrastructure layer designed for the next generation of decentralized applications, combining raw hardware power with cryptographic certainty.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
@@ -653,14 +691,18 @@ const WhyExnus = () => {
 
 const DashboardPreview = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-20 lg:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="relative"
           >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-bold text-brand-primary mb-6 border-brand-primary/20 uppercase tracking-widest">
+              Coming Soon
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">Next-Gen Dashboard</h2>
             <p className="text-xl text-white/60 mb-10 leading-relaxed">
               Experience total control over your hardware assets. Our upcoming dashboard provides real-time insights into node health, staking performance, and automated reward distribution.
@@ -680,9 +722,6 @@ const DashboardPreview = () => {
                 </li>
               ))}
             </ul>
-            <button className="px-8 py-4 bg-white text-black rounded-2xl font-bold text-lg hover:scale-105 transition-transform flex items-center gap-2">
-              Open App <ExternalLink size={18} />
-            </button>
           </motion.div>
 
           <motion.div
@@ -773,13 +812,20 @@ const DashboardPreview = () => {
 
 const Ecosystem = () => {
   return (
-    <section className="py-32 border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 lg:py-32 border-y border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-brand-primary/5 blur-[120px] rounded-full -translate-y-1/2 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">Backed by & Integrated with</span>
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">Strategic Partnerships & Integrations</span>
         </div>
-        <div className="flex justify-center items-center opacity-60">
-          <span className="text-4xl md:text-6xl font-bold uppercase tracking-[0.3em] text-brand-primary glow-primary">Coming Soon</span>
+        <div className="flex flex-col items-center justify-center gap-8">
+          <div className="flex justify-center items-center opacity-20 grayscale">
+            <span className="text-4xl md:text-6xl font-bold uppercase tracking-[0.3em] text-white">Network Partners</span>
+          </div>
+          <div className="inline-flex items-center gap-3 px-6 py-3 glass rounded-2xl border-brand-primary/20 animate-pulse">
+            <div className="w-2 h-2 rounded-full bg-brand-primary" />
+            <span className="text-sm font-bold text-brand-primary uppercase tracking-widest">Announcements Approaching</span>
+          </div>
         </div>
       </div>
     </section>
@@ -788,17 +834,14 @@ const Ecosystem = () => {
 
 const FinalCTA = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-20 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-primary/5 to-transparent" />
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-        <h2 className="text-5xl md:text-7xl font-bold mb-8">Start earning with Exnus today.</h2>
-        <p className="text-xl text-white/50 mb-12">Join the next generation of hardware-powered decentralized infrastructure.</p>
+        <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">The future of hardware is <span className="text-brand-primary">decentralized.</span></h2>
+        <p className="text-xl text-white/50 mb-12 max-w-2xl mx-auto leading-relaxed">Join the Exnus network and contribute to the next generation of high-performance infrastructure.</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <button className="px-10 py-5 bg-white text-black rounded-2xl font-bold text-xl hover:scale-105 transition-transform">
-            Start Staking
-          </button>
-          <button className="px-10 py-5 glass rounded-2xl font-bold text-xl hover:bg-white/10 transition-all">
-            Explore XNodes
+          <button className="px-10 py-5 bg-white text-black rounded-2xl font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+            Waitlist Coming Soon
           </button>
         </div>
       </div>
@@ -865,11 +908,14 @@ const Footer = () => {
 
 const Founders = () => {
   return (
-    <section id="founders" className="py-32">
+    <section id="founders" className="py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-bold text-brand-primary mb-6 border-brand-primary/20 uppercase tracking-widest">
+            The Visionaries
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Founders</h2>
-          <p className="text-white/50 max-w-2xl mx-auto">The visionaries behind Exnus Protocol.</p>
+          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">The team behind Exnus Protocol, dedicated to building the future of hardware-powered decentralized infrastructure.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -937,11 +983,14 @@ const Roadmap = () => {
   ];
 
   return (
-    <section id="roadmap" className="py-32 bg-white/[0.01]">
+    <section id="roadmap" className="py-20 lg:py-32 bg-white/[0.01]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-bold text-brand-primary mb-6 border-brand-primary/20 uppercase tracking-widest">
+            Strategic Path
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Roadmap</h2>
-          <p className="text-white/50 max-w-2xl mx-auto">The journey towards a truly scalable and transparent hardware-powered infrastructure.</p>
+          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">The journey towards a truly scalable and transparent hardware-powered infrastructure.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

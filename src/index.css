@@ -8,6 +8,11 @@
   --color-brand-primary: #f43f5e; /* rose-500 */
   --color-brand-secondary: #881337; /* rose-900 */
   --color-bg-dark: #050505;
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
 }
 
 @layer base {
