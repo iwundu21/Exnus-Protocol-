@@ -811,19 +811,50 @@ const DashboardPreview = () => {
 
 const Ecosystem = () => {
   return (
-    <section className="py-20 lg:py-32 border-y border-white/5 relative overflow-hidden">
+    <section id="ecosystem" className="py-20 lg:py-32 border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 bg-brand-primary/5 blur-[120px] rounded-full -translate-y-1/2 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">Strategic Partnerships & Integrations</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4">Network Partners</h2>
         </div>
-        <div className="flex flex-col items-center justify-center gap-8">
-          <div className="flex justify-center items-center opacity-20 grayscale">
-            <span className="text-4xl md:text-6xl font-bold uppercase tracking-[0.3em] text-white">Network Partners</span>
-          </div>
-          <div className="inline-flex items-center gap-3 px-6 py-3 glass rounded-2xl border-brand-primary/20 animate-pulse">
-            <div className="w-2 h-2 rounded-full bg-brand-primary" />
-            <span className="text-sm font-bold text-brand-primary uppercase tracking-widest">Coming Soon</span>
+        
+        <div className="flex flex-wrap justify-center gap-12 items-center">
+          {/* FasterCapital */}
+          <a 
+            href="https://fastercapital.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group relative flex flex-col items-center gap-4 transition-all duration-300 hover:scale-105"
+          >
+            <div className="w-48 h-24 glass rounded-2xl border border-white/10 flex items-center justify-center p-6 group-hover:border-brand-primary/30 transition-colors overflow-hidden">
+              <img 
+                src="https://azure-big-booby-964.mypinata.cloud/ipfs/bafkreiglw5iob47u65h3idilwclsvaaa5rjbxi3dyhblscufcgdu64t3je" 
+                alt="FasterCapital" 
+                className="w-full h-auto transition-all duration-300"
+                onError={(e) => {
+                  // Fallback to text logo if image fails
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    const textLogo = document.createElement('span');
+                    textLogo.className = 'text-xl font-bold text-white tracking-tight';
+                    textLogo.innerText = 'FasterCapital';
+                    parent.appendChild(textLogo);
+                  }
+                }}
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/20 group-hover:text-brand-primary transition-colors">Strategic Partner</span>
+          </a>
+
+          {/* More partners coming soon */}
+          <div className="flex flex-col items-center gap-4 opacity-30">
+            <div className="w-48 h-24 border border-dashed border-white/20 rounded-2xl flex items-center justify-center">
+              <span className="text-xs font-bold uppercase tracking-widest text-white/40">More Incoming</span>
+            </div>
           </div>
         </div>
       </div>
@@ -916,10 +947,10 @@ const Team = () => {
           <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">The team behind Exnus Protocol, dedicated to building the future of hardware-powered decentralized infrastructure.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {/* James */}
           <div className="glass p-8 rounded-3xl border border-white/10 w-full text-center group">
-            <div className="relative mb-8 mx-auto w-48 h-48 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
               <img 
                 src="https://azure-big-booby-964.mypinata.cloud/ipfs/bafybeicbmubsouck47cgziewesrjspsxtmyq7wtjezawmxqc4ncx3impce" 
                 alt="James" 
@@ -927,16 +958,16 @@ const Team = () => {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <h3 className="text-2xl font-bold mb-2">James</h3>
-            <p className="text-brand-primary font-mono text-sm uppercase tracking-widest mb-4">Founder</p>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold mb-2">James</h3>
+            <p className="text-brand-primary font-mono text-[10px] uppercase tracking-widest mb-4">Founder</p>
+            <p className="text-white/60 text-xs leading-relaxed">
               Behind the idea of Exnus. rethinking staking through hardware and on-chain verification.
             </p>
           </div>
 
           {/* neobubba */}
           <div className="glass p-8 rounded-3xl border border-white/10 w-full text-center group">
-            <div className="relative mb-8 mx-auto w-48 h-48 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
               <img 
                 src="https://azure-big-booby-964.mypinata.cloud/ipfs/bafybeihopaftaatlfmks34fskg5k4ac6zgrlciq3wsrtstgworxhspbbyi" 
                 alt="neobubba" 
@@ -944,16 +975,33 @@ const Team = () => {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <h3 className="text-2xl font-bold mb-2">neobubba</h3>
-            <p className="text-brand-primary font-mono text-sm uppercase tracking-widest mb-4">Co-Founder</p>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold mb-2">neobubba</h3>
+            <p className="text-brand-primary font-mono text-[10px] uppercase tracking-widest mb-4">Co-Founder</p>
+            <p className="text-white/60 text-xs leading-relaxed">
               Solana-focused technical contributor with experience at Xandeum Network, working across community operations and technical support.
+            </p>
+          </div>
+
+          {/* Mr. Mohsin */}
+          <div className="glass p-8 rounded-3xl border border-white/10 w-full text-center group">
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
+              <img 
+                src="https://azure-big-booby-964.mypinata.cloud/ipfs/bafkreie4zhiko6qmjmillo2myk2w6iddjibihlwe3fij2s66gwmka2r7n4" 
+                alt="Mr. Mohsin" 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <h3 className="text-xl font-bold mb-2">Mr. Mohsin</h3>
+            <p className="text-brand-primary font-mono text-[10px] uppercase tracking-widest mb-4">Co-founder</p>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Sr. web developer | Web 3 Specialist | Marketing Expert
             </p>
           </div>
 
           {/* Ismaila mufutau */}
           <div className="glass p-8 rounded-3xl border border-white/10 w-full text-center group">
-            <div className="relative mb-8 mx-auto w-48 h-48 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-2xl overflow-hidden border-2 border-brand-primary/20 group-hover:border-brand-primary/50 transition-colors">
               <img 
                 src="https://azure-big-booby-964.mypinata.cloud/ipfs/bafybeiez4solbpd2orsrvtrgymftbct5rkhhkh7cdnimjd43kgr37qis4a" 
                 alt="Ismaila mufutau" 
@@ -961,9 +1009,9 @@ const Team = () => {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <h3 className="text-2xl font-bold mb-2">Ismaila mufutau</h3>
-            <p className="text-brand-primary font-mono text-sm uppercase tracking-widest mb-4">Exnus Protocol Social Media Manager</p>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold mb-2">Ismaila mufutau</h3>
+            <p className="text-brand-primary font-mono text-[10px] uppercase tracking-widest mb-4">Social Media Manager</p>
+            <p className="text-white/60 text-xs leading-relaxed">
               Driving community engagement and social presence for the Exnus ecosystem.
             </p>
           </div>
