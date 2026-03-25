@@ -14,7 +14,6 @@ import {
   ChevronRight, 
   Layers, 
   BarChart3, 
-  Network, 
   Globe, 
   Twitter, 
   Github, 
@@ -245,12 +244,12 @@ const Hero = () => {
             <span>Project in Development • Coming Soon</span>
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-tight md:leading-[0.9] mb-8">
-            Hardware-powered <br className="hidden sm:block" />
-            <span className="text-brand-primary">staking.</span> <br className="hidden sm:block" />
-            Verified on-chain.
+            Turn Your Hardware <br className="hidden sm:block" />
+            Into <span className="text-brand-primary">Financial</span> <br className="hidden sm:block" />
+            Freedom.
           </h1>
           <p className="text-lg sm:text-xl text-white/60 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed">
-            Exnus leverages high-performance XNodes to execute complex off-chain computations with transparent, cryptographic on-chain verification.
+            Run XNode with Off-Chain Execution and On-Chain Settlement.
           </p>
           <div className="flex flex-wrap justify-center lg:justify-start gap-4">
             <button className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-black rounded-2xl font-bold text-base sm:text-lg hover:scale-105 transition-transform flex items-center gap-2 group shadow-[0_0_40px_rgba(255,255,255,0.1)]">
@@ -299,7 +298,7 @@ const WhatIsExnus = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8">What is Exnus?</h2>
             <p className="text-xl text-white/60 leading-relaxed mb-12">
-              Exnus is a decentralized infrastructure layer bridging the gap between high-performance hardware and on-chain security. We enable complex computations to happen off-chain while maintaining absolute cryptographic proof on the blockchain.
+              Exnus is a decentralized infrastructure layer bridging the gap between high-performance hardware and on-chain security. We enable complex computations to happen off-chain while maintaining absolute cryptographic proof on the blockchain, verified every 10 minutes.
             </p>
             
             <div className="space-y-6">
@@ -467,7 +466,7 @@ const XNodesSection = () => {
               <div className="grid sm:grid-cols-2 gap-6 mb-12">
                 {[
                   "Performance-based rewards",
-                  "Configurable commission",
+                  "Open node participation",
                   "On-chain verified activity",
                   "Hardware-level security"
                 ].map((feature, i) => (
@@ -634,9 +633,6 @@ const HalvingSchedule = () => {
       <div className="absolute inset-0 bg-black/5" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-brand-primary/20 text-brand-primary text-sm font-medium mb-6">
-            <TrendingUp size={16} />
-          </div>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
             Epoch Reward <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Halving</span>
           </h2>
@@ -704,13 +700,13 @@ const DashboardPreview = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">Next-Gen Dashboard</h2>
             <p className="text-xl text-white/60 mb-10 leading-relaxed">
-              Experience total control over your hardware assets. Our upcoming dashboard provides real-time insights into node health, staking performance, and automated reward distribution.
+              Experience total control over your hardware assets. Our upcoming dashboard provides real-time insights into node health, mining performance, and automated reward distribution.
             </p>
             <ul className="space-y-4 mb-10">
               {[
                 "Real-time XNode health monitoring",
-                "Detailed staking yield analytics",
-                "One-click delegation management",
+                "Detailed mining yield analytics",
+                "One-click node management",
                 "Automated reward history tracking"
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-white/70">
@@ -756,7 +752,7 @@ const DashboardPreview = () => {
                     <div className="flex-1">
                       <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
                         <div className="glass p-3 sm:p-4 rounded-2xl border-brand-primary/20">
-                          <div className="text-[10px] text-white/30 uppercase mb-1">Total Staked</div>
+                          <div className="text-[10px] text-white/30 uppercase mb-1">Total Mined</div>
                           <div className="text-lg sm:text-2xl font-bold text-brand-primary">42,850 EXN</div>
                         </div>
                         <div className="glass p-3 sm:p-4 rounded-2xl">
@@ -809,59 +805,6 @@ const DashboardPreview = () => {
   );
 };
 
-const Ecosystem = () => {
-  return (
-    <section id="ecosystem" className="py-20 lg:py-32 border-y border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-brand-primary/5 blur-[120px] rounded-full -translate-y-1/2 pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">Strategic Partnerships & Integrations</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">Network Partners</h2>
-        </div>
-        
-        <div className="flex flex-wrap justify-center gap-12 items-center">
-          {/* FasterCapital */}
-          <a 
-            href="https://fastercapital.com/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="group relative flex flex-col items-center gap-4 transition-all duration-300 hover:scale-105"
-          >
-            <div className="w-48 h-24 glass rounded-2xl border border-white/10 flex items-center justify-center p-6 group-hover:border-brand-primary/30 transition-colors overflow-hidden">
-              <img 
-                src="https://azure-big-booby-964.mypinata.cloud/ipfs/bafkreiglw5iob47u65h3idilwclsvaaa5rjbxi3dyhblscufcgdu64t3je" 
-                alt="FasterCapital" 
-                className="w-full h-auto transition-all duration-300"
-                onError={(e) => {
-                  // Fallback to text logo if image fails
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    const textLogo = document.createElement('span');
-                    textLogo.className = 'text-xl font-bold text-white tracking-tight';
-                    textLogo.innerText = 'FasterCapital';
-                    parent.appendChild(textLogo);
-                  }
-                }}
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-white/20 group-hover:text-brand-primary transition-colors">Strategic Partner</span>
-          </a>
-
-          {/* More partners coming soon */}
-          <div className="flex flex-col items-center gap-4 opacity-30">
-            <div className="w-48 h-24 border border-dashed border-white/20 rounded-2xl flex items-center justify-center">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/40">More Incoming</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const FinalCTA = () => {
   return (
     <section className="py-20 lg:py-32 relative overflow-hidden">
@@ -897,7 +840,7 @@ const Footer = () => {
               <span className="text-xl font-bold tracking-tighter">EXNUS</span>
             </div>
             <p className="text-white/40 max-w-xs leading-relaxed">
-              Hardware-powered staking. Verified on-chain. The future of decentralized infrastructure.
+              Hardware-powered mining. Verified on-chain. The future of decentralized infrastructure.
             </p>
           </div>
           
@@ -944,7 +887,7 @@ const Team = () => {
             The Visionaries
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Team</h2>
-          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">The team behind Exnus Protocol, dedicated to building the future of hardware-powered decentralized infrastructure.</p>
+          <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">The team behind Exnus Protocol, dedicated to building the future of hardware-powered decentralized infrastructure through node mining.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -961,7 +904,7 @@ const Team = () => {
             <h3 className="text-xl font-bold mb-2">James</h3>
             <p className="text-brand-primary font-mono text-[10px] uppercase tracking-widest mb-4">Founder</p>
             <p className="text-white/60 text-xs leading-relaxed">
-              Behind the idea of Exnus. rethinking staking through hardware and on-chain verification.
+              Behind the idea of Exnus. rethinking node mining through hardware and on-chain verification.
             </p>
           </div>
 
@@ -993,7 +936,7 @@ const Team = () => {
               />
             </div>
             <h3 className="text-xl font-bold mb-2">Mr. Mohsin</h3>
-            <p className="text-brand-primary font-mono text-[10px] uppercase tracking-widest mb-4">Co-founder</p>
+            <p className="text-brand-primary font-mono text-[10px] uppercase tracking-widest mb-4">Marketer</p>
             <p className="text-white/60 text-xs leading-relaxed">
               Sr. web developer | Web 3 Specialist | Marketing Expert
             </p>
@@ -1026,7 +969,7 @@ const Roadmap = () => {
     {
       phase: "Phase 1: Planning & Architecture",
       status: "In Progress",
-      items: ["Protocol Architecture Design", "XNode Hardware Prototyping", "Technical Whitepaper"]
+      items: ["Protocol Architecture Design", "XNode Hardware Prototyping", "Technical Whitepaper", "Community Building"]
     },
     {
       phase: "Phase 2: Development",
@@ -1036,7 +979,7 @@ const Roadmap = () => {
     {
       phase: "Phase 3: Expansion",
       status: "Upcoming",
-      items: ["Public Beta Launch", "XNode Operator Onboarding", "Community Building"]
+      items: ["Public Beta Launch", "XNode Operator Onboarding"]
     },
     {
       phase: "Phase 4: Maturity",
@@ -1102,7 +1045,6 @@ export default function App() {
             <DashboardPreview />
             <Roadmap />
             <Team />
-            <Ecosystem />
             <FinalCTA />
             <Footer />
           </div>

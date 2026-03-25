@@ -36,8 +36,7 @@ const Whitepaper = () => {
   }, [currentPage]);
 
   const rewardData = [
-    { name: 'Delegators', value: 80, color: '#000000' },
-    { name: 'Node Operators', value: 18.6, color: '#666666' },
+    { name: 'Mining Rewards', value: 98.6, color: '#000000' },
     { name: 'Protocol Fee', value: 1.4, color: '#AAAAAA' },
   ];
 
@@ -51,271 +50,360 @@ const Whitepaper = () => {
   ];
 
   const pages = [
-    // Page 1: Title & Summary
+    // Page 1: Executive Summary
     {
       title: "01. Executive Summary",
       content: (
         <div className="space-y-8">
           <div className="pb-8 mb-8 border-b border-black/10">
-            <p className="text-sm font-mono uppercase tracking-[0.3em] text-black/40 mb-4">Technical Specification // V1.0.4</p>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight mb-4">Exnus Protocol</h1>
-            <p className="text-lg text-black/60 italic mt-1">Hardware-backed, On-chain Verified Staking Infrastructure on Solana</p>
+            <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 mb-4">Technical Specification // V1.1.0</p>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight mb-4">XNode Protocol</h1>
+            <p className="text-lg text-black/60 italic mt-1">Trustless Hardware Node Reward Infrastructure</p>
           </div>
-          <div className="space-y-6 text-lg font-serif leading-relaxed text-black/80">
-            <p>Exnus Protocol represents a next-generation staking and reward infrastructure built on the Solana blockchain. It is designed to unify staking and rewards into a transparent, efficient, and highly scalable system for all participants.</p>
-            <div className="p-8 bg-black text-white italic text-xl leading-relaxed rounded-lg shadow-xl">
-              "At its core are XNodes — specialized hardware-based nodes that execute complex computations off-chain while being verified on-chain. This hybrid model ensures high-performance operations while maintaining absolute transparency."
+          <div className="space-y-6 text-base font-serif leading-relaxed text-black/90">
+            <p>XNode introduces a next-generation trustless node-based reward system designed for hardware nodes. The platform allows nodes to earn dynamic rewards based on uptime, with immutable off-chain tracking and epoch-based claiming mechanisms. <strong>Participation is open to everyone, allowing any user to run a node and contribute to the network.</strong></p>
+            <div className="p-8 border-y border-black/10 text-black italic text-lg leading-relaxed">
+              "By combining blockchain settlement with off-chain verification, XNode ensures fair, secure, and transparent reward distribution without imposing per-block transaction fees."
             </div>
-            <p>Exnus aims to redefine the staking experience by providing dynamic reward distribution, user-aligned incentives, and a scalable infrastructure that builds long-term trust.</p>
+            <p>This hybrid architecture addresses the fundamental scalability and trust issues inherent in current decentralized physical infrastructure networks (DePIN).</p>
           </div>
         </div>
       )
     },
-    // Page 2: Market Overview
+    // Page 2: Market Analysis
     {
-      title: "02. Market Overview",
+      title: "02. Market Analysis",
       content: (
         <div className="space-y-8">
-          <div className="grid grid-cols-2 gap-6">
-            <div className="border border-black/20 p-8 rounded-lg bg-black/5">
-              <p className="text-xs font-bold uppercase text-black/50 mb-2 tracking-widest">Total Staked (2026)</p>
-              <p className="text-4xl font-serif font-bold">$150B+</p>
-            </div>
-            <div className="border border-black/20 p-8 rounded-lg bg-black/5">
-              <p className="text-xs font-bold uppercase text-black/50 mb-2 tracking-widest">Solana Wallets</p>
-              <p className="text-4xl font-serif font-bold">4M+</p>
-            </div>
-          </div>
-          <div className="space-y-6 text-lg font-serif leading-relaxed text-black/80">
-            <h4 className="font-sans font-bold uppercase tracking-widest text-black text-sm border-b border-black/10 pb-2">2.1 Market Barriers</h4>
-            <p>The current staking landscape faces several significant hurdles that prevent widespread adoption:</p>
-            <ul className="space-y-3 list-disc pl-6">
-              <li>High technical barriers that exclude retail users from participating effectively.</li>
-              <li>Dominance by centralized validators, which compromises network decentralization.</li>
-              <li>Opaque and non-automated reward systems that lack clarity for delegators.</li>
-            </ul>
-            <h4 className="font-sans font-bold uppercase tracking-widest text-black mt-8 text-sm border-b border-black/10 pb-2">2.2 Opportunities</h4>
-            <p className="italic">Exnus is strategically positioned to unlock these opportunities by combining off-chain hardware execution with rigorous on-chain verification, providing predictable payouts and full clarity for every user.</p>
-          </div>
-        </div>
-      )
-    },
-    // Page 3: Problems Solved
-    {
-      title: "03. Problems Solved",
-      content: (
-        <div className="space-y-8">
-          <p className="text-lg font-serif text-black/80 leading-relaxed">The Exnus Protocol addresses critical inefficiencies in the current blockchain ecosystem through innovative hardware and software integration:</p>
-          <div className="space-y-4">
-            {[
-              { p: "Inefficient on-chain execution", s: "By utilizing off-chain hardware execution via XNodes, we ensure that the network remains scalable and responsive even under high load." },
-              { p: "Limited user engagement", s: "Our dynamic, epoch-based reward system is automatically distributed, ensuring that users are consistently incentivized to participate." },
-              { p: "Opaque reward distribution", s: "Node uptime is tracked with per-second precision, and rewards are calculated transparently at the end of each epoch." },
-              { p: "Validator centralization", s: "XNodes allow for broader participation across the network, ensuring that incentives remain aligned with the community." }
-            ].map((item, i) => (
-              <div key={i} className="bg-black/5 p-6 rounded-lg border border-black/10">
-                <p className="font-sans font-bold text-sm mb-2 uppercase tracking-widest text-black">{item.p}</p>
-                <p className="text-base font-serif text-black/70 italic leading-relaxed">{item.s}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    },
-    // Page 4: Architecture (XNode)
-    {
-      title: "04. Architecture: XNode",
-      content: (
-        <div className="space-y-8">
-          <h4 className="text-sm font-sans font-bold uppercase tracking-widest text-black border-b border-black/10 pb-2">4.1 XNode Overview</h4>
-          <p className="text-lg font-serif text-black/80 leading-relaxed">XNodes are high-performance hardware units that execute complex logic off-chain to maintain speed. Every action taken by an XNode is verified on the Solana blockchain using cryptographic proofs, ensuring that performance never comes at the cost of security.</p>
-          <div className="p-12 bg-black/5 rounded-xl border border-black/10 flex flex-col items-center gap-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-black/50 mb-4">Fig 1.1: System Flow Diagram</p>
-            <div className="flex flex-wrap justify-center items-center gap-6">
-              <div className="w-16 h-16 bg-white rounded-xl shadow-md border border-black/10 flex items-center justify-center">
-                <Cpu size={24} className="text-black" />
-              </div>
-              <ArrowRight size={20} className="text-black/30" />
-              <div className="w-16 h-16 bg-white rounded-xl shadow-md border border-black/10 flex items-center justify-center">
-                <Lock size={24} className="text-black" />
-              </div>
-              <ArrowRight size={20} className="text-black/30" />
-              <div className="w-16 h-16 bg-black rounded-xl shadow-lg flex items-center justify-center">
-                <Database size={24} className="text-white" />
-              </div>
-            </div>
-            <div className="flex flex-wrap justify-center items-center gap-6 mt-4">
-              <div className="w-16 h-16 bg-white rounded-xl shadow-md border border-black/10 flex items-center justify-center">
-                <ShieldCheck size={24} className="text-black" />
-              </div>
-              <ArrowRight size={20} className="text-black/30" />
-              <div className="w-16 h-16 bg-white rounded-xl shadow-md border border-black/10 flex items-center justify-center">
-                <TrendingUp size={24} className="text-black" />
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    // Page 5: Reward Mechanics
-    {
-      title: "05. Reward Mechanics",
-      content: (
-        <div className="space-y-8">
-          <h4 className="text-sm font-sans font-bold uppercase tracking-widest text-black border-b border-black/10 pb-2">5.1 Distribution Logic</h4>
-          <div className="space-y-4 text-lg font-serif text-black/80 leading-relaxed">
-            <p>XNode operators earn commissions from delegators' rewards each epoch. This is the <strong>only way</strong> node operators earn rewards for providing infrastructure to support the network.</p>
-            <p>Node operators pay the protocol fee for each epoch reward distribution directly from the commissions they earn from delegators' rewards.</p>
-            <p>Node operators can set their commissions from <strong>0% to 20%</strong> from each epoch's rewards, which are accumulated dynamically based on the node's uptime. A node starts accumulating rewards <strong>only when there are active delegators</strong> on that specific node.</p>
-          </div>
-          <div className="grid grid-cols-2 gap-4 text-base font-serif text-black/80 bg-white p-6 rounded-lg border border-black/10 shadow-sm mt-8">
-            <p className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full"/> 14-day Epoch cycles</p>
-            <p className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full"/> Uptime tracked per second</p>
-            <p className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full"/> Protocol fee paid by operator</p>
-            <p className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full"/> 0-20% Operator commission</p>
-          </div>
-        </div>
-      )
-    },
-    // Page 6: Technical Components
-    {
-      title: "06. Technical Components",
-      content: (
-        <div className="space-y-8">
-          <p className="text-lg font-serif text-black/80 leading-relaxed">The Exnus ecosystem is comprised of several core technical modules that work in harmony to provide a seamless staking experience:</p>
-          <div className="border border-black/20 rounded-xl overflow-hidden shadow-sm">
-            <table className="w-full text-left text-sm border-collapse">
-              <thead className="bg-black text-white uppercase font-mono tracking-widest">
-                <tr>
-                  <th className="p-4 border-r border-white/20">Component</th>
-                  <th className="p-4">Function</th>
-                </tr>
-              </thead>
-              <tbody className="font-serif text-base bg-white">
-                {[
-                  { c: "XNode Hardware", f: "Executes off-chain tasks and tracks uptime." },
-                  { c: "Verification Engine", f: "Verifies cryptographic proofs on-chain." },
-                  { c: "Delegation Module", f: "Manages SPL-based staking and delegation." },
-                  { c: "Reward Engine", f: "Calculates and distributes epoch rewards." }
-                ].map((row, i) => (
-                  <tr key={i} className="border-b border-black/10 last:border-0 hover:bg-black/5 transition-colors">
-                    <td className="p-4 font-bold border-r border-black/10">{row.c}</td>
-                    <td className="p-4 italic text-black/70">{row.f}</td>
-                  </tr>
+          <div className="space-y-6 text-base font-serif leading-relaxed text-black/90">
+            <h4 className="font-sans font-bold uppercase tracking-widest text-black text-xs border-b border-black/10 pb-2">2.1 Blockchain and IoT Integration</h4>
+            <p>The global blockchain market is expected to exceed $100 billion by 2030, with significant growth in IoT and decentralized networks. As IoT devices proliferate, a scalable and fair reward system for node participation is critical.</p>
+            
+            {/* Network Topology Diagram */}
+            <div className="py-8 border border-black/5 bg-black/[0.01] relative overflow-hidden">
+              <div className="flex justify-center items-center h-40 relative">
+                <div className="w-16 h-16 rounded-full border border-black flex items-center justify-center bg-white z-10">
+                  <span className="text-[10px] font-mono font-bold">CORE</span>
+                </div>
+                {/* Orbiting Nodes */}
+                {[0, 60, 120, 180, 240, 300].map((deg, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute w-32 h-32 pointer-events-none"
+                    style={{ rotate: deg }}
+                  >
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 border border-black/20 bg-white" />
+                  </motion.div>
                 ))}
-              </tbody>
-            </table>
+                {/* Connecting Lines (SVG) */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                  <circle cx="50%" cy="50%" r="64" fill="none" stroke="black" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.1" />
+                </svg>
+              </div>
+              <p className="text-[10px] font-mono text-black/30 text-center uppercase tracking-widest">Decentralized Network Topology</p>
+            </div>
+
+            <p className="italic text-black/60">Platforms like Helium and Golem have demonstrated the demand for incentive-based networks, but current solutions either require frequent transaction fees or lack trustless uptime verification.</p>
+            
+            <h4 className="font-sans font-bold uppercase tracking-widest text-black mt-8 text-xs border-b border-black/10 pb-2">2.2 Problem Space</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              {[
+                { t: "Centralization", d: "Existing systems are often manual or centralized, creating trust issues." },
+                { t: "Cost Inefficiency", d: "Per-block on-chain reward systems are cost-prohibitive due to fees." },
+                { t: "Uptime Spoofing", d: "Hardware uptime is easily falsified without software-based verification." },
+                { t: "Unfair Sharing", d: "Lack of efficient systems for dynamic reward sharing proportional to participation." }
+              ].map((item, i) => (
+                <div key={i} className="border border-black/5 p-4">
+                  <p className="font-sans font-bold text-[10px] uppercase tracking-widest mb-1">{item.t}</p>
+                  <p className="text-sm text-black/70 leading-snug">{item.d}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="text-xs font-mono text-black/40 uppercase tracking-[0.3em] mt-4 text-center">Solana SPL // Rust // Cryptographic Proofs</p>
         </div>
       )
     },
-    // Page 7: Use Cases & Landscape
+    // Page 3: Landscape Overview
     {
-      title: "07. Ecosystem",
+      title: "03. Landscape Overview",
       content: (
         <div className="space-y-8">
-          <div className="grid grid-cols-2 gap-8">
-            <div className="border-l-4 border-black pl-6 py-2">
-              <p className="font-sans font-bold text-sm uppercase mb-3 tracking-widest">Delegators</p>
-              <p className="text-base font-serif text-black/70 leading-relaxed">Users can delegate their tokens to trusted XNodes to earn dynamic rewards with full transparency.</p>
-            </div>
-            <div className="border-l-4 border-black pl-6 py-2">
-              <p className="font-sans font-bold text-sm uppercase mb-3 tracking-widest">Operators</p>
-              <p className="text-base font-serif text-black/70 leading-relaxed">Operators provide the hardware infrastructure, earning commissions while securing the network.</p>
-            </div>
-          </div>
-          <div className="p-8 bg-black/5 rounded-xl border border-black/10 mt-8">
-            <h4 className="text-sm font-sans font-bold uppercase mb-6 tracking-widest border-b border-black/10 pb-2">Competitive Edge</h4>
-            <div className="grid grid-cols-2 gap-8 text-base font-serif">
-              <div>
-                <p className="font-bold mb-2 text-black">Traditional Staking</p>
-                <p className="text-black/70 leading-relaxed">Often limited to on-chain execution, which can be slow and lacks full transparency for retail users.</p>
+          <div className="space-y-6 text-base font-serif leading-relaxed text-black/90">
+            <p>Current node reward and IoT integration platforms include:</p>
+            <div className="space-y-4">
+              <div className="border-l border-black/20 pl-6">
+                <p className="font-sans font-bold text-xs uppercase tracking-widest">Helium Network</p>
+                <p className="text-sm italic text-black/60">Reward system based on long-term device activity, but requires hardware staking.</p>
               </div>
-              <div>
-                <p className="font-bold mb-2 text-black">Exnus Protocol</p>
-                <p className="text-black/70 leading-relaxed">Utilizes hybrid execution to provide high performance while maintaining delegator-aligned incentives.</p>
+              <div className="border-l border-black/20 pl-6">
+                <p className="font-sans font-bold text-xs uppercase tracking-widest">Golem Network</p>
+                <p className="text-sm italic text-black/60">Distributed computing rewards, primarily software-focused.</p>
               </div>
+              <div className="border-l border-black/20 pl-6">
+                <p className="font-sans font-bold text-xs uppercase tracking-widest">Filecoin</p>
+                <p className="text-sm italic text-black/60">Storage-based rewards with significant upfront setup costs.</p>
+              </div>
+            </div>
+            <div className="p-6 border border-black/10 bg-black/5 font-mono text-xs italic">
+              Gap analysis shows that existing platforms do not combine trustless off-chain tracking, automatic uptime reset, dynamic per-block rewards, and epoch-based claim efficiently.
             </div>
           </div>
         </div>
       )
     },
-    // Page 8: Market Strategy
+    // Page 4: Problem Definition
     {
-      title: "08. Market Strategy",
-      content: (
-        <div className="space-y-8 font-serif text-lg text-black/80">
-          <div className="space-y-4">
-            <h4 className="font-sans font-bold uppercase tracking-widest text-black text-sm border-b border-black/10 pb-2">Engagement & Education</h4>
-            <p className="leading-relaxed">We are committed to building a strong community through competitive leaderboards, early adopter rewards, and comprehensive educational resources for both stakers and operators.</p>
-          </div>
-        </div>
-      )
-    },
-    // Page 9: Tokenomics
-    {
-      title: "09. Token & Economic Model",
+      title: "04. Problem Definition",
       content: (
         <div className="space-y-8">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            <div className="h-80 border border-black/10 rounded-xl p-6 bg-white shadow-sm flex flex-col">
-              <p className="text-xs font-sans font-bold uppercase text-center mb-4 tracking-widest">Reward Distribution</p>
-              <div className="flex-1">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie data={rewardData} cx="50%" cy="50%" innerRadius={40} outerRadius={80} dataKey="value" label>
-                      {rewardData.map((e, i) => <Cell key={i} fill={e.color} stroke="#fff" strokeWidth={2} />)}
-                    </Pie>
-                    <Tooltip contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }} />
-                    <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '10px', fontFamily: 'monospace' }} />
-                  </PieChart>
-                </ResponsiveContainer>
+          <div className="space-y-6 text-base font-serif leading-relaxed text-black/90">
+            <p>The industry faces four primary challenges in node incentivization:</p>
+            
+            {/* Performance Comparison Chart */}
+            <div className="py-6 border border-black/5 bg-black/[0.01]">
+              <p className="text-[10px] font-sans font-bold uppercase tracking-widest text-center mb-4">Settlement Efficiency Comparison</p>
+              <div className="h-32 flex items-end justify-center gap-8 px-8">
+                <div className="flex flex-col items-center gap-2 flex-1">
+                  <div className="w-full bg-black/5 h-24 relative">
+                    <motion.div initial={{ height: "100%" }} animate={{ height: "100%" }} className="absolute bottom-0 w-full bg-black/10" />
+                  </div>
+                  <span className="text-[8px] font-mono uppercase">Standard DePIN</span>
+                </div>
+                <div className="flex flex-col items-center gap-2 flex-1">
+                  <div className="w-full bg-black/5 h-24 relative">
+                    <motion.div initial={{ height: "100%" }} animate={{ height: "12%" }} className="absolute bottom-0 w-full bg-black" />
+                  </div>
+                  <span className="text-[8px] font-mono uppercase">XNode Protocol</span>
+                </div>
               </div>
+              <p className="text-[8px] font-serif italic text-center mt-4 text-black/40">Reduction in on-chain transaction overhead via Epoch Aggregation.</p>
             </div>
-            <div className="h-80 border border-black/10 rounded-xl p-6 bg-white shadow-sm flex flex-col">
-              <p className="text-xs font-sans font-bold uppercase text-center mb-4 tracking-widest">Epoch Reward Halving</p>
-              <div className="flex-1">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={halvingData} margin={{ top: 20, right: 20, left: -20, bottom: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(0,0,0,0.05)" />
-                    <XAxis dataKey="epoch" fontSize={10} axisLine={false} tickLine={false} interval={0} angle={-45} textAnchor="end" height={40} />
-                    <YAxis fontSize={10} axisLine={false} tickLine={false} tickFormatter={(value) => `${value}%`} />
-                    <Tooltip cursor={{ fill: 'rgba(0,0,0,0.05)' }} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }} formatter={(value) => [`${value}%`, 'Rewards']} />
-                    <Bar dataKey="rewards" fill="#000" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
+
+            <div className="space-y-4">
+              {[
+                { t: "Verification Failure", d: "Centralized servers cannot guarantee accurate uptime calculation." },
+                { t: "Falsified Uptime", d: "Hardware uptime is easily falsified, leading to unfair reward distribution." },
+                { t: "Settlement Inefficiency", d: "Frequent on-chain reward settlements are expensive and inefficient." },
+                { t: "Lack of Autonomy", d: "Nodes require an autonomous, tamper-proof, and verifiable reward system." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-6 items-start py-4 border-b border-black/5 last:border-0">
+                  <span className="font-mono text-xs text-black/30">0{i+1}</span>
+                  <div>
+                    <p className="font-sans font-bold text-xs uppercase tracking-widest mb-1">{item.t}</p>
+                    <p className="text-sm text-black/70">{item.d}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-          <div className="text-lg font-serif text-black/80 leading-relaxed space-y-6">
-            <p>Each epoch has a fixed maximum reward pool (cap). After each 65-epoch cycle, the pool is halved to manage inflation over a <strong className="text-black">15-year (390-epoch)</strong> period. Each epoch lasts for exactly <strong className="text-black">14 days</strong>.</p>
-            <div className="bg-black/5 p-6 rounded-lg border border-black/10 text-sm font-mono italic space-y-2">
-              <p>• Epochs 1–65: 100% Pool</p>
-              <p>• Epochs 66–130: 50% Pool</p>
-              <p>• Epochs 131–195: 25% Pool</p>
-              <p>• Epochs 196–260: 12.5% Pool</p>
-              <p>• Epochs 261–325: 6.25% Pool</p>
-              <p>• Epochs 326–390: 3.125% Pool</p>
-            </div>
-            <p>Delegators receive their share from the epoch pool based on their <strong className="text-black">delegated amount</strong>, <strong className="text-black">node uptime</strong>, and after the <strong className="text-black">node operator commission</strong> is deducted.</p>
           </div>
         </div>
       )
     },
-    // Page 10: Future & Conclusion
+    // Page 5: Exnus Solution (I)
     {
-      title: "10. Conclusion",
+      title: "05. Exnus Solution (I)",
+      content: (
+        <div className="space-y-8">
+          <div className="space-y-6 text-base font-serif leading-relaxed text-black/90">
+            <div className="border-l border-black/20 pl-6">
+              <h4 className="font-sans font-bold text-xs uppercase mb-2 tracking-widest">1. Dynamic Per-Block Reward</h4>
+              <p className="text-sm mb-4">Rewards are distributed proportionally to XNode uptime per block. Only active nodes share rewards.</p>
+              
+              {/* Reward Logic Diagram */}
+              <div className="my-6 p-6 border border-black/5 bg-black/[0.02] relative overflow-hidden">
+                <div className="flex justify-between items-end h-32 gap-2">
+                  {[40, 70, 30, 90, 50, 80].map((h, i) => (
+                    <div key={i} className="flex-1 flex flex-col items-center gap-2">
+                      <motion.div 
+                        initial={{ height: 0 }}
+                        animate={{ height: `${h}%` }}
+                        className="w-full bg-black/10 border-t border-black/20"
+                      />
+                      <span className="text-[8px] font-mono text-black/40">N{i+1}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute top-4 right-4 text-[10px] font-mono text-black/20 uppercase">Live Reward Weighting</div>
+              </div>
+
+              <div className="bg-black/5 p-6 font-mono text-center border border-black/5">
+                <p className="text-lg">R_i = (B × U_i) / ΣU_all</p>
+                <p className="text-[10px] mt-2 text-black/40 uppercase tracking-widest">Reward Formula</p>
+              </div>
+            </div>
+            
+            <div className="border-l border-black/20 pl-6">
+              <h4 className="font-sans font-bold text-xs uppercase mb-2 tracking-widest">2. Immutable Off-Chain Server</h4>
+              <p className="text-sm mb-4">Deployed as a frozen Docker container or VM. Automatic uptime reset when nodes go offline or are manually turned off. Append-only logs ensure full auditability.</p>
+              
+              <h4 className="font-sans font-bold text-xs uppercase mb-2 tracking-widest">3. Network Fee Structure</h4>
+              <p className="text-sm">To ensure long-term protocol sustainability, all node operators pay a <strong>1.40% network fee</strong> from the total mined rewards at the end of each epoch. This fee is automatically deducted during the settlement process.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // Page 6: Data Integrity & Verification
+    {
+      title: "06. Data Integrity & Verification",
+      content: (
+        <div className="space-y-8">
+          <div className="space-y-6 text-base font-serif leading-relaxed text-black/90">
+            <h4 className="font-sans font-bold text-xs uppercase mb-4 tracking-widest">Merkle Tree Proof System</h4>
+            <p className="text-sm">To ensure trustless verification without bloating the blockchain, XNode utilizes Merkle Trees to aggregate millions of heartbeat signals into a single root hash.</p>
+            
+            {/* Merkle Tree Diagram */}
+            <div className="py-12 border border-black/5 bg-black/[0.01] flex flex-col items-center">
+              <div className="relative w-full max-w-md h-48">
+                {/* Root */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-8 border border-black flex items-center justify-center text-[10px] font-mono bg-white z-10">ROOT</div>
+                
+                {/* Lines to L1 */}
+                <div className="absolute top-8 left-1/2 -translate-x-1/2 w-32 h-8 border-x border-t border-black/10" />
+                
+                {/* L1 */}
+                <div className="absolute top-16 left-1/4 -translate-x-1/2 w-16 h-8 border border-black/40 flex items-center justify-center text-[8px] font-mono bg-white">H(A+B)</div>
+                <div className="absolute top-16 left-3/4 -translate-x-1/2 w-16 h-8 border border-black/40 flex items-center justify-center text-[8px] font-mono bg-white">H(C+D)</div>
+                
+                {/* Lines to L2 */}
+                <div className="absolute top-24 left-1/4 -translate-x-1/2 w-16 h-8 border-x border-t border-black/10" />
+                <div className="absolute top-24 left-3/4 -translate-x-1/2 w-16 h-8 border-x border-t border-black/10" />
+                
+                {/* L2 (Leaves) */}
+                <div className="absolute top-32 left-[12.5%] -translate-x-1/2 w-10 h-6 border border-black/10 flex items-center justify-center text-[6px] font-mono">H(A)</div>
+                <div className="absolute top-32 left-[37.5%] -translate-x-1/2 w-10 h-6 border border-black/10 flex items-center justify-center text-[6px] font-mono">H(B)</div>
+                <div className="absolute top-32 left-[62.5%] -translate-x-1/2 w-10 h-6 border border-black/10 flex items-center justify-center text-[6px] font-mono">H(C)</div>
+                <div className="absolute top-32 left-[87.5%] -translate-x-1/2 w-10 h-6 border border-black/10 flex items-center justify-center text-[6px] font-mono">H(D)</div>
+              </div>
+              <p className="text-[10px] font-mono text-black/30 mt-4 uppercase tracking-widest">Cryptographic Proof Structure</p>
+            </div>
+
+            <div className="border-l border-black/20 pl-6">
+              <h4 className="font-sans font-bold text-xs uppercase mb-2 tracking-widest">Epoch-Based Claiming</h4>
+              <p className="text-sm">Per-block rewards are aggregated per epoch. Users claim rewards once per epoch, minimizing transaction costs. Merkle proofs enable trustless verification on-chain.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // Page 7: Technical Architecture
+    {
+      title: "07. Technical Architecture",
+      content: (
+        <div className="space-y-8">
+          <div className="space-y-6">
+            <h4 className="font-sans font-bold text-xs uppercase tracking-widest border-b border-black/10 pb-2">System Interaction Model</h4>
+            
+            {/* Advanced Architecture Diagram */}
+            <div className="py-12 border border-black/5 bg-black/[0.02] relative">
+              <div className="flex justify-between items-center px-8 relative z-10">
+                {/* Node Layer */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="grid grid-cols-2 gap-1">
+                    {[1,2,3,4].map(i => <div key={i} className="w-4 h-4 border border-black/20 bg-white" />)}
+                  </div>
+                  <span className="text-[10px] font-mono uppercase text-black/40">XNodes</span>
+                </div>
+
+                {/* SVG Path Connector */}
+                <div className="flex-1 h-px relative">
+                  <svg className="absolute inset-0 w-full h-12 -top-6 overflow-visible">
+                    <path d="M 0 24 L 100% 24" stroke="black" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.2" fill="none" />
+                    <circle cx="50%" cy="24" r="3" fill="white" stroke="black" strokeWidth="1" />
+                  </svg>
+                </div>
+
+                {/* Processing Layer */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="w-24 h-24 border border-black flex flex-col items-center justify-center bg-white relative">
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-black" />
+                    <Cpu size={24} className="mb-2" />
+                    <span className="text-[8px] font-mono text-center px-2">IMMUTABLE SERVER</span>
+                  </div>
+                  <span className="text-[10px] font-mono uppercase text-black/40">Verification</span>
+                </div>
+
+                {/* SVG Path Connector */}
+                <div className="flex-1 h-px relative">
+                  <svg className="absolute inset-0 w-full h-12 -top-6 overflow-visible">
+                    <path d="M 0 24 L 100% 24" stroke="black" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.2" fill="none" />
+                    <circle cx="50%" cy="24" r="3" fill="white" stroke="black" strokeWidth="1" />
+                  </svg>
+                </div>
+
+                {/* Settlement Layer */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="w-20 h-20 rounded-full border-2 border-black border-dashed flex items-center justify-center bg-white">
+                    <Database size={24} />
+                  </div>
+                  <span className="text-[10px] font-mono uppercase text-black/40">Blockchain</span>
+                </div>
+              </div>
+              
+              {/* Decorative Background Grid */}
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 0)', backgroundSize: '20px 20px' }} />
+            </div>
+
+            <div className="space-y-4">
+              {[
+                { t: "1. Node Layer", d: "Nodes send periodic heartbeat signals. Current session uptime increments per block." },
+                { t: "2. Immutable Off-Chain Server", d: "Receives heartbeats and calculates per-block dynamic rewards. Resets uptime automatically when nodes go offline." },
+                { t: "3. Epoch Aggregator", d: "Aggregates block rewards per node over the epoch. Prepares a single on-chain claim transaction." },
+                { t: "4. Blockchain Settlement", d: "Epoch-level rewards are submitted and verified on-chain. Nodes claim rewards in one transaction per epoch." }
+              ].map((step, i) => (
+                <div key={i} className="py-3 border-b border-black/5 last:border-0">
+                  <p className="font-sans font-bold text-[10px] uppercase tracking-widest mb-1">{step.t}</p>
+                  <p className="text-xs font-serif text-black/70 leading-relaxed">{step.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // Page 8: Advantages & Conclusion
+    {
+      title: "08. Advantages & Conclusion",
       content: (
         <div className="space-y-8">
           <div className="grid grid-cols-2 gap-4">
-            {["Advanced Analytics", "Cross-chain Support", "DAO Governance", "Protocol Optimization"].map((f, i) => (
-              <div key={i} className="bg-black/5 border border-black/10 p-4 rounded-lg text-center text-xs font-sans font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors cursor-default">{f}</div>
+            {[
+              { a: "Fairness", d: "Proportional rewards." },
+              { a: "Trustless", d: "Immutable logic." },
+              { a: "Cost-Efficient", d: "Single claim per epoch." },
+              { a: "Transparent", d: "Audit-ready logs." }
+            ].map((item, i) => (
+              <div key={i} className="border border-black/10 p-4">
+                <p className="text-[10px] font-sans font-bold uppercase tracking-widest mb-1">{item.a}</p>
+                <p className="text-xs text-black/50 italic">{item.d}</p>
+              </div>
             ))}
           </div>
-          <div className="p-8 border-l-4 border-black bg-white shadow-sm font-serif text-xl italic leading-relaxed text-black/80 mt-8">
-            Exnus Protocol is dedicated to delivering a scalable, transparent, and high-performance staking ecosystem. By bridging the gap between hardware-backed execution and on-chain security, we are building the trust-minimized infrastructure required for the future of the Solana network.
+
+          {/* Node Lifecycle Diagram */}
+          <div className="py-8 border border-black/5 bg-black/[0.01] relative">
+            <h4 className="text-[10px] font-sans font-bold uppercase tracking-widest text-center mb-6">Node Lifecycle State Machine</h4>
+            <div className="flex justify-center items-center gap-4">
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-16 h-8 border border-black/10 flex items-center justify-center text-[8px] font-mono">OFFLINE</div>
+                <ArrowRight size={12} className="text-black/20" />
+                <div className="w-16 h-8 border border-black flex items-center justify-center text-[8px] font-mono bg-black text-white">ACTIVE</div>
+                <ArrowRight size={12} className="text-black/20" />
+                <div className="w-16 h-8 border border-black/10 flex items-center justify-center text-[8px] font-mono">CLAIMING</div>
+              </div>
+              <div className="w-px h-24 bg-black/5" />
+              <div className="text-[8px] font-serif italic text-black/40 max-w-[120px]">
+                Automatic state transitions based on heartbeat frequency and epoch boundaries.
+              </div>
+            </div>
           </div>
+
+          <div className="p-8 border-y border-black/10 font-serif text-lg italic leading-relaxed text-black/90 mt-8">
+            Exnus via XNode provides a scalable, trustless, and fair reward system for hardware nodes. By combining immutable off-chain logic, dynamic per-block rewards, a sustainable 1.40% network fee, automatic uptime reset, and epoch-based claims, the platform addresses critical problems in node reward ecosystems and creates a transparent, cost-efficient, and verifiable infrastructure for decentralized participation.
+          </div>
+          <p className="text-[10px] font-mono text-black/40 uppercase tracking-[0.3em] text-center">End of Specification // Exnus Protocol 2026</p>
         </div>
       )
     }
@@ -325,11 +413,11 @@ const Whitepaper = () => {
   const prevPage = () => setCurrentPage((prev) => (prev - 1 >= 0 ? prev - 1 : 0));
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-brand-primary/30 flex flex-col items-center py-6 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-[#f5f5f5] text-black font-sans selection:bg-black/10 flex flex-col items-center py-6 px-4 relative overflow-hidden">
       {/* Back Button */}
       <Link 
         to="/" 
-        className="fixed top-6 left-6 flex items-center gap-3 text-xs font-mono uppercase tracking-[0.3em] text-white/50 hover:text-white transition-colors group z-50 bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/10"
+        className="fixed top-6 left-6 flex items-center gap-3 text-xs font-mono uppercase tracking-[0.3em] text-black/50 hover:text-black transition-colors group z-50 px-4 py-2 border border-black/10"
       >
         <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
         Back to Home
@@ -338,23 +426,22 @@ const Whitepaper = () => {
       {/* Document Container */}
       <div className="w-full max-w-[850px] relative mt-16 flex-1 flex flex-col justify-center items-center">
         <AnimatePresence mode="wait">
-          <motion.div
+            <motion.div
             key={currentPage}
-            initial={{ opacity: 0, scale: 0.98, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 1.02, y: -10 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="bg-[#fafafa] shadow-[0_20px_60px_rgba(0,0,0,0.8)] rounded-sm w-full flex flex-col relative overflow-hidden text-[#1A1A1A] aspect-auto md:aspect-[1/1.414] min-h-[80vh]"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="bg-white w-full flex flex-col relative overflow-hidden text-[#1A1A1A] aspect-auto md:aspect-[1/1.414] min-h-[80vh] border border-black/10"
           >
             {/* Page Content */}
-            <div className="w-full h-full p-8 xl:p-14 flex flex-col relative">
-              <div className="flex justify-between items-center mb-8 pb-4 border-b border-black/10">
-                <span className="text-xs font-sans font-bold uppercase tracking-widest text-black/40">Exnus Protocol</span>
-                <span className="text-xs font-mono text-black/40 bg-black/5 px-3 py-1 rounded-full">PAGE {currentPage + 1} OF {pages.length}</span>
+            <div className="w-full h-full p-8 xl:p-16 flex flex-col relative">
+              <div className="flex justify-between items-center mb-12 pb-4 border-b border-black/10">
+                <span className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-black/40">Exnus Protocol // Technical Architecture</span>
+                <span className="text-[10px] font-mono text-black/40">PAGE {currentPage + 1} / {pages.length}</span>
               </div>
 
-              <h3 className="text-sm font-sans font-bold uppercase tracking-[0.3em] text-black/50 mb-8 flex items-center gap-4">
-                <span className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center"><Hash size={14} className="text-black" /></span>
+              <h3 className="text-xs font-sans font-bold uppercase tracking-[0.3em] text-black/60 mb-10">
                 {pages[currentPage].title}
               </h3>
 
@@ -362,9 +449,6 @@ const Whitepaper = () => {
                 {pages[currentPage].content}
               </div>
             </div>
-
-            {/* Paper Texture Overlay */}
-            <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
           </motion.div>
         </AnimatePresence>
 
@@ -373,7 +457,7 @@ const Whitepaper = () => {
           <button 
             onClick={prevPage}
             disabled={currentPage === 0}
-            className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all group bg-white/5 backdrop-blur-sm disabled:opacity-30 disabled:hover:bg-white/5 disabled:hover:text-white disabled:cursor-not-allowed"
+            className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group bg-white disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-black disabled:cursor-not-allowed"
           >
             <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
           </button>
@@ -383,7 +467,7 @@ const Whitepaper = () => {
               <button
                 key={i} 
                 onClick={() => setCurrentPage(i)}
-                className={`h-2 rounded-full transition-all ${currentPage === i ? 'bg-brand-primary w-6' : 'bg-white/20 w-2 hover:bg-white/50'}`}
+                className={`h-2 rounded-full transition-all ${currentPage === i ? 'bg-black w-6' : 'bg-black/20 w-2 hover:bg-black/40'}`}
                 aria-label={`Go to page ${i + 1}`}
               />
             ))}
@@ -392,7 +476,7 @@ const Whitepaper = () => {
           <button 
             onClick={nextPage}
             disabled={currentPage >= pages.length - 1}
-            className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all group bg-white/5 backdrop-blur-sm disabled:opacity-30 disabled:hover:bg-white/5 disabled:hover:text-white disabled:cursor-not-allowed"
+            className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group bg-white disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-black disabled:cursor-not-allowed"
           >
             <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
           </button>
