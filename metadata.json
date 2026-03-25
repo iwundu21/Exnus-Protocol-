@@ -1,5 +1,5 @@
 {
   "name": "Exnus - Hardware-Powered Node Mining",
-  "description": "Hardware-powered node mining verified on-chain. Scalable off-chain execution with transparent on-chain rewards.",
+  "description": "off-chain power on-chain mining through XNode",
   "requestFramePermissions": []
 }
