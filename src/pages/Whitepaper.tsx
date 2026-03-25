@@ -135,7 +135,7 @@ const Whitepaper = () => {
             <div className="space-y-4">
               <div className="border-l border-black/20 pl-6">
                 <p className="font-sans font-bold text-xs uppercase tracking-widest">Helium Network</p>
-                <p className="text-sm italic text-black/60">Reward system based on long-term device activity, but requires hardware staking.</p>
+                <p className="text-sm italic text-black/60">Reward system based on long-term device activity.</p>
               </div>
               <div className="border-l border-black/20 pl-6">
                 <p className="font-sans font-bold text-xs uppercase tracking-widest">Golem Network</p>

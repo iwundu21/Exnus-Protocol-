@@ -274,7 +274,7 @@ const Hero = () => {
           
           {/* Floating stats */}
           <div className="absolute -top-10 -right-2 sm:-top-6 sm:-right-6 glass p-3 sm:p-4 rounded-2xl animate-bounce">
-            <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mb-1">Network APY</div>
+            <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mb-1">Mining Rewards</div>
             <div className="text-lg sm:text-2xl font-bold text-brand-primary">14.2%</div>
           </div>
           <div className="absolute -bottom-10 -left-2 sm:-bottom-6 sm:-left-6 glass p-3 sm:p-4 rounded-2xl animate-bounce delay-700">
@@ -785,10 +785,10 @@ const DashboardPreview = () => {
                         <div className="text-[10px] text-white/30">Status: Optimal</div>
                       </div>
                     </div>
-                    <div className="text-left sm:text-right">
-                      <div className="text-xs font-bold">14.2% APY</div>
-                      <div className="text-[10px] text-white/30">Uptime: 99.9%</div>
-                    </div>
+                      <div className="text-left sm:text-right">
+                        <div className="text-xs font-bold">Mining Rewards</div>
+                        <div className="text-[10px] text-white/30">Uptime: 99.9%</div>
+                      </div>
                   </div>
                 </div>
               </div>
