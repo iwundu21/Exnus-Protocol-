@@ -45,6 +45,8 @@ import {
   Route, 
   Link 
 } from 'react-router-dom';
+import { collection, getDocs, onSnapshot } from 'firebase/firestore';
+import { db } from './firebase';
 import Whitepaper from './pages/Whitepaper';
 import Waitlist from './pages/Waitlist';
 import Admin from './pages/Admin';
@@ -225,7 +227,74 @@ const PerformanceShowcase = () => {
   );
 };
 
-const Hero = () => {
+const WaitlistStats = ({ count }: { count: number | null }) => {
+  return (
+    <section className="py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="glass rounded-[40px] p-12 md:p-20 relative overflow-hidden border border-white/10">
+          {/* Background Accents */}
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-primary/5 to-transparent" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-primary/10 rounded-full blur-[100px]" />
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-wider mb-6">
+                Live Network Growth
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                The Genesis <br /> 
+                <span className="text-brand-primary">Mining Fleet</span> is Growing.
+              </h2>
+              <p className="text-lg text-white/50 max-w-md mb-10 leading-relaxed">
+                Join thousands of pioneers securing the Exnus network. Joining the waitlist is free and grants you genesis hashpower.
+              </p>
+              <Link to="/waitlist" className="inline-flex items-center gap-2 text-white font-bold hover:text-brand-primary transition-colors group">
+                Claim your genesis hashpower <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col items-center md:items-end">
+              <div className="relative">
+                {/* Animated Rings */}
+                <div className="absolute inset-0 -m-8 border border-brand-primary/20 rounded-full animate-[spin_10s_linear_infinite]" />
+                <div className="absolute inset-0 -m-16 border border-brand-primary/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+                
+                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full glass border-2 border-brand-primary/30 flex flex-col items-center justify-center relative z-10 shadow-[0_0_80px_rgba(244,63,94,0.2)]">
+                  <div className="text-4xl md:text-6xl font-black text-white mb-2">
+                    {count !== null ? count.toLocaleString() : "---"}
+                  </div>
+                  <div className="text-[10px] md:text-xs font-bold text-brand-primary uppercase tracking-[0.2em]">
+                    Pioneers
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-12 flex items-center gap-4">
+                <div className="flex -space-x-3">
+                  {[4, 5, 6, 7].map((i) => (
+                    <div key={i} className="w-10 h-10 rounded-full border-4 border-[#121212] overflow-hidden bg-white/10">
+                      <img 
+                        src={`https://picsum.photos/seed/pioneer${i}/40/40`} 
+                        alt="Pioneer" 
+                        className="w-full h-full object-cover shadow-xl"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="text-sm text-white/40 italic">
+                  + Recently joined the waitlist
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Hero = ({ count }: { count: number | null }) => {
   return (
     <section className="relative min-h-screen flex items-center py-20 overflow-x-hidden">
       {/* Animated Background */}
@@ -242,6 +311,38 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="text-center lg:text-left"
         >
+          {/* Dynamic Waitlist Counter Badge */}
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border border-brand-primary/20 mb-8 group hover:border-brand-primary/40 transition-colors"
+          >
+            <div className="flex -space-x-2">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="w-6 h-6 rounded-full border-2 border-[#0a0a0a] overflow-hidden bg-white/10">
+                  <img 
+                    src={`https://picsum.photos/seed/user${i}/32/32`} 
+                    alt="User" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="text-xs font-medium flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-white/70">
+                {count !== null ? (
+                  <span className="text-white font-bold">{count.toLocaleString()}</span>
+                ) : (
+                  <span className="inline-block w-8 h-3 bg-white/10 animate-pulse rounded" />
+                )}
+                {" "} Pioneers Joined
+              </span>
+            </div>
+          </motion.div>
+
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-tight md:leading-[0.9] mb-8">
             Turn Your Hardware <br className="hidden sm:block" />
             Into <span className="text-brand-primary">Financial</span> <br className="hidden sm:block" />
@@ -263,7 +364,7 @@ const Hero = () => {
               }}
             >
               <Link to="/waitlist" className="px-6 py-3 sm:px-8 sm:py-4 bg-brand-primary text-white rounded-2xl font-bold text-base sm:text-lg hover:bg-brand-primary/90 transition-colors flex items-center gap-2 group shadow-[0_0_40px_rgba(244,63,94,0.4)]">
-                Waitlist is Live - Join Now! <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                Join Waitlist - Get Free Genesis Hashpower <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
             <Link 
@@ -503,7 +604,7 @@ const XNodesSection = () => {
                 className="inline-block"
               >
                 <Link to="/waitlist" className="inline-flex items-center gap-2 px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold text-lg hover:bg-brand-primary/90 transition-colors shadow-[0_0_40px_rgba(244,63,94,0.4)]">
-                  Waitlist is Live - Join Now! <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  Join Waitlist - Get Free Genesis Hashpower <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
             </div>
@@ -849,7 +950,7 @@ const FinalCTA = () => {
             }}
           >
             <Link to="/waitlist" className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary text-white rounded-2xl font-bold text-xl hover:bg-brand-primary/90 transition-colors shadow-[0_0_40px_rgba(244,63,94,0.4)]">
-              Waitlist is Live - Join Now! <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              Join Waitlist - Get Free Genesis Hashpower <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>
@@ -1067,16 +1168,30 @@ const Roadmap = () => {
 };
 
 export default function App() {
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Real-time listener for waitlist count
+    const unsubscribe = onSnapshot(collection(db, 'waitlist'), (snapshot) => {
+      setWaitlistCount(snapshot.size);
+    }, (error) => {
+      console.error("Error fetching waitlist count:", error);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={
           <div className="min-h-screen">
-            <Hero />
+            <Hero count={waitlistCount} />
             <WhatIsExnus />
             <HowItWorks />
             <XNodesSection />
             <WhyExnus />
+            <WaitlistStats count={waitlistCount} />
             <HalvingSchedule />
             <DashboardPreview />
             <Roadmap />
