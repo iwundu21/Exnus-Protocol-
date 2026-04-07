@@ -53,3 +53,11 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #2a2a2a;
 }
+
+/* Solana Wallet Adapter Overrides */
+.wallet-adapter-modal {
+  z-index: 99999 !important;
+}
+.wallet-adapter-dropdown-list {
+  z-index: 99999 !important;
+}

@@ -46,6 +46,8 @@ import {
   Link 
 } from 'react-router-dom';
 import Whitepaper from './pages/Whitepaper';
+import Waitlist from './pages/Waitlist';
+import Admin from './pages/Admin';
 
 // --- Components ---
 
@@ -240,9 +242,6 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="text-center lg:text-left"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium text-brand-primary mb-6 border-brand-primary/20">
-            <span>Project in Development • Coming Soon</span>
-          </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-tight md:leading-[0.9] mb-8">
             Turn Your Hardware <br className="hidden sm:block" />
             Into <span className="text-brand-primary">Financial</span> <br className="hidden sm:block" />
@@ -252,9 +251,21 @@ const Hero = () => {
             Run XNode with Off-Chain Execution and On-Chain Settlement.
           </p>
           <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-            <button className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-black rounded-2xl font-bold text-base sm:text-lg hover:scale-105 transition-transform flex items-center gap-2 group shadow-[0_0_40px_rgba(255,255,255,0.1)]">
-              Waitlist Coming Soon <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            <motion.div
+              animate={{ 
+                rotate: [0, -2, 2, -2, 2, 0],
+                scale: [1, 1.05, 1.05, 1.05, 1.05, 1]
+              }}
+              transition={{ 
+                duration: 0.5, 
+                repeat: Infinity, 
+                repeatDelay: 2.5 
+              }}
+            >
+              <Link to="/waitlist" className="px-6 py-3 sm:px-8 sm:py-4 bg-brand-primary text-white rounded-2xl font-bold text-base sm:text-lg hover:bg-brand-primary/90 transition-colors flex items-center gap-2 group shadow-[0_0_40px_rgba(244,63,94,0.4)]">
+                Waitlist is Live - Join Now! <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
             <Link 
               to="/whitepaper" 
               className="px-6 py-3 sm:px-8 sm:py-4 glass rounded-2xl font-bold text-base sm:text-lg hover:bg-white/10 transition-all flex items-center gap-2"
@@ -275,11 +286,11 @@ const Hero = () => {
           {/* Floating stats */}
           <div className="absolute -top-10 -right-2 sm:-top-6 sm:-right-6 glass p-3 sm:p-4 rounded-2xl animate-bounce">
             <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mb-1">Mining Rewards</div>
-            <div className="text-lg sm:text-2xl font-bold text-brand-primary">14.2%</div>
+            <div className="text-base sm:text-lg font-bold text-brand-primary">Coming Soon</div>
           </div>
           <div className="absolute -bottom-10 -left-2 sm:-bottom-6 sm:-left-6 glass p-3 sm:p-4 rounded-2xl animate-bounce delay-700">
             <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mb-1">Active XNodes</div>
-            <div className="text-lg sm:text-2xl font-bold">1,248</div>
+            <div className="text-base sm:text-lg font-bold text-white/80">Coming Soon</div>
           </div>
         </motion.div>
       </div>
@@ -479,9 +490,22 @@ const XNodesSection = () => {
                 ))}
               </div>
 
-              <button className="px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold text-lg hover:glow-primary transition-all shadow-[0_0_40px_rgba(244,63,94,0.2)]">
-                Waitlist Coming Soon
-              </button>
+              <motion.div
+                animate={{ 
+                  rotate: [0, -2, 2, -2, 2, 0],
+                  scale: [1, 1.05, 1.05, 1.05, 1.05, 1]
+                }}
+                transition={{ 
+                  duration: 0.5, 
+                  repeat: Infinity, 
+                  repeatDelay: 2.5 
+                }}
+                className="inline-block"
+              >
+                <Link to="/waitlist" className="inline-flex items-center gap-2 px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold text-lg hover:bg-brand-primary/90 transition-colors shadow-[0_0_40px_rgba(244,63,94,0.4)]">
+                  Waitlist is Live - Join Now! <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
@@ -787,7 +811,7 @@ const DashboardPreview = () => {
                     </div>
                       <div className="text-left sm:text-right">
                         <div className="text-xs font-bold">Mining Rewards</div>
-                        <div className="text-[10px] text-white/30">Uptime: 99.9%</div>
+                        <div className="text-[10px] text-white/30">Coming Soon</div>
                       </div>
                   </div>
                 </div>
@@ -813,9 +837,21 @@ const FinalCTA = () => {
         <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">The future of hardware is <span className="text-brand-primary">decentralized.</span></h2>
         <p className="text-xl text-white/50 mb-12 max-w-2xl mx-auto leading-relaxed">Join the Exnus network and contribute to the next generation of high-performance infrastructure.</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <button className="px-10 py-5 bg-white text-black rounded-2xl font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.1)]">
-            Waitlist Coming Soon
-          </button>
+          <motion.div
+            animate={{ 
+              rotate: [0, -2, 2, -2, 2, 0],
+              scale: [1, 1.05, 1.05, 1.05, 1.05, 1]
+            }}
+            transition={{ 
+              duration: 0.5, 
+              repeat: Infinity, 
+              repeatDelay: 2.5 
+            }}
+          >
+            <Link to="/waitlist" className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary text-white rounded-2xl font-bold text-xl hover:bg-brand-primary/90 transition-colors shadow-[0_0_40px_rgba(244,63,94,0.4)]">
+              Waitlist is Live - Join Now! <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -1050,6 +1086,8 @@ export default function App() {
           </div>
         } />
         <Route path="/whitepaper" element={<Whitepaper />} />
+        <Route path="/waitlist" element={<Waitlist />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );
