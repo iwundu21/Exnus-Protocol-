@@ -243,14 +243,11 @@ const WaitlistStats = ({ count }: { count: number | null }) => {
               </div>
               <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 The Genesis <br /> 
-                <span className="text-brand-primary">Mining Fleet</span> is Growing.
+                <span className="text-brand-primary">Network Fleet</span> is Growing.
               </h2>
               <p className="text-lg text-white/50 max-w-md mb-10 leading-relaxed">
-                Join thousands of pioneers securing the Exnus network. Joining the waitlist is free and grants you genesis hashpower.
+                Join thousands of pioneers securing the Exnus network. Secure your early access spot today.
               </p>
-              <Link to="/waitlist" className="inline-flex items-center gap-2 text-white font-bold hover:text-brand-primary transition-colors group">
-                Claim your genesis hashpower <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
 
             <div className="flex flex-col items-center md:items-end">
@@ -364,7 +361,7 @@ const Hero = ({ count }: { count: number | null }) => {
               }}
             >
               <Link to="/waitlist" className="px-6 py-3 sm:px-8 sm:py-4 bg-brand-primary text-white rounded-2xl font-bold text-base sm:text-lg hover:bg-brand-primary/90 transition-colors flex items-center gap-2 group shadow-[0_0_40px_rgba(244,63,94,0.4)]">
-                Join Waitlist - Get Free Genesis Hashpower <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                Waitlist is live, join now <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
             <Link 
@@ -386,7 +383,7 @@ const Hero = ({ count }: { count: number | null }) => {
           
           {/* Floating stats */}
           <div className="absolute -top-10 -right-2 sm:-top-6 sm:-right-6 glass p-3 sm:p-4 rounded-2xl animate-bounce">
-            <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mb-1">Mining Rewards</div>
+            <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-widest mb-1">Network Rewards</div>
             <div className="text-base sm:text-lg font-bold text-brand-primary">Coming Soon</div>
           </div>
           <div className="absolute -bottom-10 -left-2 sm:-bottom-6 sm:-left-6 glass p-3 sm:p-4 rounded-2xl animate-bounce delay-700">
@@ -590,23 +587,6 @@ const XNodesSection = () => {
                   </div>
                 ))}
               </div>
-
-              <motion.div
-                animate={{ 
-                  rotate: [0, -2, 2, -2, 2, 0],
-                  scale: [1, 1.05, 1.05, 1.05, 1.05, 1]
-                }}
-                transition={{ 
-                  duration: 0.5, 
-                  repeat: Infinity, 
-                  repeatDelay: 2.5 
-                }}
-                className="inline-block"
-              >
-                <Link to="/waitlist" className="inline-flex items-center gap-2 px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold text-lg hover:bg-brand-primary/90 transition-colors shadow-[0_0_40px_rgba(244,63,94,0.4)]">
-                  Join Waitlist - Get Free Genesis Hashpower <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
@@ -950,7 +930,7 @@ const FinalCTA = () => {
             }}
           >
             <Link to="/waitlist" className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary text-white rounded-2xl font-bold text-xl hover:bg-brand-primary/90 transition-colors shadow-[0_0_40px_rgba(244,63,94,0.4)]">
-              Join Waitlist - Get Free Genesis Hashpower <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              Waitlist is live, join now <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>

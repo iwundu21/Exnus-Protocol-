@@ -174,7 +174,7 @@ const WaitlistContent = () => {
             <Sparkles size={12} /> Early Access Perks
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Join the Waitlist</h1>
-          <p className="text-white/60">Complete the steps below to secure your early access community genesis mining hashpower grant.</p>
+          <p className="text-white/60">Complete the steps below to secure your early access spot in the Exnus ecosystem.</p>
         </div>
 
         <div className="w-full glass rounded-3xl p-8 border-white/10 relative bg-black/40 backdrop-blur-2xl min-h-[400px] flex flex-col justify-center">
@@ -195,8 +195,8 @@ const WaitlistContent = () => {
                 </h3>
                 <p className="text-white/60 mb-8">
                   {isAlreadyRegistered 
-                    ? "Your wallet is already on the waitlist. We'll notify you when your genesis mining hashpower grant is ready."
-                    : "We'll notify you when your genesis mining hashpower grant is ready."}
+                    ? "Your wallet is already on the waitlist. We'll notify you when the next phase begins."
+                    : "We'll notify you when the next phase begins."}
                 </p>
                 <Link to="/" className="px-8 py-3 bg-white text-black rounded-xl font-bold hover:bg-white/90 transition-colors">
                   Return Home
@@ -260,7 +260,7 @@ const WaitlistContent = () => {
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   className="text-2xl font-bold mb-2 tracking-tight"
                 >
-                  Securing Hashpower Grant...
+                  Securing Early Access...
                 </motion.h3>
                 <p className="text-white/50 text-center max-w-[250px]">
                   Encrypting data and securing your position on the network
